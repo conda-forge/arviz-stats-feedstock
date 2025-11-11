@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: arviz-stats
-  version: "0.6.0"
+  version: "0.7.0"
   python_min: "3.11"
 
 package:
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/arviz_stats-${{ version }}.tar.gz
-  sha256: 0a85f7c062aeeae35afc0e7a21bb00d0557a3b9704193e5307a4298270ebadfb
+  sha256: c04d2b888fc2ecf44bdaca3f950f62834d51ddcc97472f9aeec7c4808e598032
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -27,9 +27,9 @@ requirements:
     - python >=${{ python_min }}
     - numpy >=2
     - scipy >=1.10
-    - arviz-base ==0.6.0
+    - arviz-base >=0.7.0
     - xarray-einstats
-    - numba
+    - xarray
 
 tests:
   - python:
