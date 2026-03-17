@@ -2,51 +2,75 @@ schema_version: 1
 
 context:
   name: arviz-stats
-  version: "0.8.0"
-  python_min: "3.11"
+  version: "1.0.0"
+  python_min: "3.12"
 
-package:
-  name: ${{ name|lower }}
+recipe:
+  name: arviz-stats-suite
   version: ${{ version }}
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/arviz_stats-${{ version }}.tar.gz
-  sha256: 633576cbb488aeb50608466fe2c0c79926d599ec1937d24636ba88c0cdfa224f
+  sha256: 056228574bbc1e9045fd41da168d62fe4167097fd886056b8085a40799142e53
 
 build:
   number: 0
-  noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
-requirements:
-  host:
-    - python ${{ python_min }}.*
-    - flit-core >=3.4,<4
-    - pip
-  run:
-    - python >=${{ python_min }}
-    - numpy >=2
-    - scipy >=1.10
-    - arviz-base >=0.7.0
-    - xarray-einstats
-    - xarray
-
-tests:
-  - python:
-      imports:
-        - arviz_stats
-      pip_check: true
-      python_version:
-        - ${{ python_min }}.*
-        - 3.*
+outputs:
+  - package:
+      name: arviz-stats-core
+    build:
+      noarch: python
+      script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - flit-core >=3.4,<4
+        - pip
+      run:
+        - python >=${{ python_min }}
+        - numpy >=2
+        - scipy >=1.13
+    tests:
+      - python:
+          imports:
+            - arviz_stats
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - 3.*
+  - package:
+      name: arviz-stats
+    build:
+      noarch: python
+      script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - flit-core >=3.4,<4
+        - pip
+      run:
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage("arviz-stats-core", exact=True) }}
+        - arviz-base >=1.0.0,<1.1.0
+        - xarray-einstats
+        - xarray >=2024.11.0
+    tests:
+      - python:
+          imports:
+            - arviz_stats
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - 3.*
 
 about:
   summary: Statistical computation and diagnostics for ArviZ.
   license: Apache-2.0
   license_file: LICENSE
-  homepage: https://github.com/arviz-devs/arviz-stats
+  homepage: https://python.arviz.org
   repository: https://github.com/arviz-devs/arviz-stats
-  documentation: https://arviz-stats.readthedocs.io
+  documentation: https://python.arviz.org/projects/stats/
 
 extra:
   recipe-maintainers:
