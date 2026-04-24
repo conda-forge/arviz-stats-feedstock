@@ -52,7 +52,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage("arviz-stats-core", exact=True) }}
-        - arviz-base >=1.0.0,<1.1.0
+        - arviz-base >=1.1.0,<1.2.0
         - xarray-einstats
         - xarray >=2024.11.0
     tests:
