@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: arviz-stats
-  version: "1.0.0"
+  version: "1.1.0"
   python_min: "3.12"
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/arviz_stats-${{ version }}.tar.gz
-  sha256: 056228574bbc1e9045fd41da168d62fe4167097fd886056b8085a40799142e53
+  sha256: c0111d36007bbed8286afe01089738229e2b9bf8df9d4a0e4b107f2e3f71e6c7
 
 build:
   number: 0
@@ -52,7 +52,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage("arviz-stats-core", exact=True) }}
-        - arviz-base >=1.0.0,<1.1.0
+        - arviz-base >=1.1.0,<1.2.0
         - xarray-einstats
         - xarray >=2024.11.0
     tests:

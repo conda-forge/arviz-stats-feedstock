@@ -3,7 +3,7 @@ About arviz-stats-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/arviz-stats-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/arviz-devs/arviz-stats
+Home: https://python.arviz.org/
 
 Package license: Apache-2.0
 
@@ -11,17 +11,16 @@ Summary: Statistical computation and diagnostics for ArviZ.
 
 Development: https://github.com/arviz-devs/arviz-stats
 
-Documentation: https://arviz-stats.readthedocs.io/
+Documentation: https://python.arviz.org/projects/stats/
 
 Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=26037&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/arviz-stats-feedstock?branchName=main">
-      </a>
+      <img src="https://img.shields.io/badge/noarch-disabled-lightgrey.svg" alt="noarch disabled">
     </td>
   </tr>
 </table>
@@ -32,6 +31,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-arviz--stats-green.svg)](https://anaconda.org/conda-forge/arviz-stats) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/arviz-stats.svg)](https://anaconda.org/conda-forge/arviz-stats) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/arviz-stats.svg)](https://anaconda.org/conda-forge/arviz-stats) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/arviz-stats.svg)](https://anaconda.org/conda-forge/arviz-stats) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-arviz--stats--core-green.svg)](https://anaconda.org/conda-forge/arviz-stats-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/arviz-stats-core.svg)](https://anaconda.org/conda-forge/arviz-stats-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/arviz-stats-core.svg)](https://anaconda.org/conda-forge/arviz-stats-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/arviz-stats-core.svg)](https://anaconda.org/conda-forge/arviz-stats-core) |
 
 Installing arviz-stats
 ======================
@@ -43,16 +43,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `arviz-stats` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `arviz-stats, arviz-stats-core` can be installed with `conda`:
 
 ```
-conda install arviz-stats
+conda install arviz-stats arviz-stats-core
 ```
 
 or with `mamba`:
 
 ```
-mamba install arviz-stats
+mamba install arviz-stats arviz-stats-core
 ```
 
 It is possible to list all of the versions of `arviz-stats` available on your platform with `conda`:
