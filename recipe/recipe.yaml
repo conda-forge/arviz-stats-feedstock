@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: arviz-stats
-  version: "1.1.0"
+  version: "1.2.0"
   python_min: "3.12"
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/arviz_stats-${{ version }}.tar.gz
-  sha256: c0111d36007bbed8286afe01089738229e2b9bf8df9d4a0e4b107f2e3f71e6c7
+  sha256: fc49e6e75f4fce953987a9bf17dc39950e1f12e7cd73f865257e5d1b6a5ee114
 
 build:
   number: 0
